@@ -54,23 +54,27 @@
   {
     "id": 4,
     "topic": "geography",
-    "difficulty": "easy",
-    "question": "What's Isabella's name",
+    "difficulty": "hard",
+    "question": "What's the second largest country of the world?",
     "options": {
-      "a": "Isabella",
-      "b": "Pablo"
+      "a": "Russia",
+      "b": "Canada",
+      "c": "United States",
+      "d": "Australia"
     },
-    "answer": "a"
+    "answer": "b"
   },
   {
     "id": 5,
     "topic": "science",
-    "difficulty": "easy",
-    "question": "What's Isabella's name",
+    "difficulty": "medium",
+    "question": "At what temperature Celsius and Fahrenheit equal?",
     "options": {
-      "a": "Isabella",
-      "b": "Pablo"
+      "a": "0",
+      "b": "-32",
+      "c": "26",
+      "d": "-40"
     },
-    "answer": "a"
+    "answer": "d"
   }
 ]
