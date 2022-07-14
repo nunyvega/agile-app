@@ -1,69 +1,76 @@
-[{
-  "id": 0,
-  "topic": "entertainment",
-  "difficulty": "easy",
-  "question": "What's Pablo's name",
-  "options": {
-    "a": "Isabella",
-    "b": "Pablo"
-  },
- "answer": "b"
-},
+[
   {
-  "id": 1,
-  "topic": "art",
-  "difficulty": "easy",
-  "question": "What's Isabella's name",
-  "options": {
-    "a": "Isabella",
-    "b": "Pablo"
+    "id": 0,
+    "topic": "entertainment",
+    "difficulty": "hard",
+    "question": "Which film, based on a true story, starred Tom Hanks as Jim Lovell?",
+    "options": {
+      "a": "Greyhound",
+      "b": "Bridge of spies",
+      "c": "Sully",
+      "d": "Apollo 13"
+    },
+    "answer": "b"
   },
- "answer": "a"
-},
-{
-  "id": 2,
-  "topic": "sports",
-  "difficulty": "easy",
-  "question": "What's Isabella's name",
-  "options": {
-    "a": "Isabella",
-    "b": "Pablo"
+  {
+    "id": 1,
+    "topic": "art",
+    "difficulty": "easy",
+    "question": "Who painted the Mona Lisa?",
+    "options": {
+      "a": "Miguel Angel Buonarroti",
+      "b": "Raphael Sanzio",
+      "c": "Leonardo da Vinci",
+      "d": "Donatello"
+    },
+    "answer": "a"
   },
- "answer": "a"
-},
-{
-  "id": 3,
-  "topic": "history",
-  "difficulty": "easy",
-  "question": "What's the independence day of USA?",
-  "options": {
-    "a": "January 20",
-    "b": "December 24",
-    "c": "July 4",
-    "d": "March 7"
+  {
+    "id": 2,
+    "topic": "sports",
+    "difficulty": "medium",
+    "question": "Who won the 2006 FIFA world cup?",
+    "options": {
+      "a": "Brazil",
+      "b": "France",
+      "c": "Italy",
+      "d": "Chile"
+    },
+    "answer": "c"
   },
- "answer": "a"
-},
-{
-  "id": 4,
-  "topic": "geography",
-  "difficulty": "easy",
-  "question": "What's Isabella's name",
-  "options": {
-    "a": "Isabella",
-    "b": "Pablo"
+  {
+    "id": 3,
+    "topic": "history",
+    "difficulty": "easy",
+    "question": "What's the independence day of USA?",
+    "options": {
+      "a": "January 20",
+      "b": "December 24",
+      "c": "July 4",
+      "d": "March 7"
+    },
+    "answer": "c"
   },
- "answer": "a"
-},
-{
-  "id": 5,
-  "topic": "science",
-  "difficulty": "easy",
-  "question": "What's Isabella's name",
-  "options": {
-    "a": "Isabella",
-    "b": "Pablo"
+  {
+    "id": 4,
+    "topic": "geography",
+    "difficulty": "easy",
+    "question": "What's Isabella's name",
+    "options": {
+      "a": "Isabella",
+      "b": "Pablo"
+    },
+    "answer": "a"
   },
- "answer": "a"
-}
+  {
+    "id": 5,
+    "topic": "science",
+    "difficulty": "easy",
+    "question": "What's Isabella's name",
+    "options": {
+      "a": "Isabella",
+      "b": "Pablo"
+    },
+    "answer": "a"
+  }
 ]
