@@ -1,80 +1,46 @@
-[
-  {
-    "id": 0,
-    "topic": "entertainment",
-    "difficulty": "hard",
-    "question": "Which film, based on a true story, starred Tom Hanks as Jim Lovell?",
-    "options": {
-      "a": "Greyhound",
-      "b": "Bridge of spies",
-      "c": "Sully",
-      "d": "Apollo 13"
+{
+  "trivia": [
+    {
+      "id": 0,
+      "topic": "entertainment",
+      "difficulty": "hard",
+      "questionAndOptions": "Which film starred Tom Hanks as Jim Lovell?, a: Greyhound, b: Bridge of spies, c: Sully,d: Apollo 13",
+      "answer": "d"
     },
-    "answer": "b"
-  },
-  {
-    "id": 1,
-    "topic": "art",
-    "difficulty": "easy",
-    "question": "Who painted the Mona Lisa?",
-    "options": {
-      "a": "Miguel Angel Buonarroti",
-      "b": "Raphael Sanzio",
-      "c": "Leonardo da Vinci",
-      "d": "Donatello"
+    {
+      "id": 1,
+      "topic": "art",
+      "difficulty": "easy",
+      "questionAndOptions": "Who painted the Mona Lisa?, a: Miguel Angel, b: Raphael Sanzio, c: Leonardo da Vinci, d: Donatello",
+      "answer": "c"
     },
-    "answer": "a"
-  },
-  {
-    "id": 2,
-    "topic": "sports",
-    "difficulty": "medium",
-    "question": "Who won the 2006 FIFA world cup?",
-    "options": {
-      "a": "Brazil",
-      "b": "France",
-      "c": "Italy",
-      "d": "Chile"
+    {
+      "id": 2,
+      "topic": "sports",
+      "difficulty": "medium",
+      "questionAndOptions": "Who won the 2006 FIFA world cup?, a: Brazil, b: France, c: Italy, d: Chile",
+      "answer": "c"
     },
-    "answer": "c"
-  },
-  {
-    "id": 3,
-    "topic": "history",
-    "difficulty": "easy",
-    "question": "What's the independence day of USA?",
-    "options": {
-      "a": "January 20",
-      "b": "December 24",
-      "c": "July 4",
-      "d": "March 7"
+    {
+      "id": 3,
+      "topic": "history",
+      "difficulty": "easy",
+      "questionAndOptions": "What's the independence day of USA?, a: January 20, b: December 24, c: July 4, d: March 7",
+      "answer": "c"
     },
-    "answer": "c"
-  },
-  {
-    "id": 4,
-    "topic": "geography",
-    "difficulty": "hard",
-    "question": "What's the second largest country of the world?",
-    "options": {
-      "a": "Russia",
-      "b": "Canada",
-      "c": "United States",
-      "d": "Australia"
+    {
+      "id": 4,
+      "topic": "geography",
+      "difficulty": "hard",
+      "questionAndOptions": "What's the second largest country of the world?, a: Russia, b: Canada, c: United States, d: Australia",
+      "answer": "b"
     },
-    "answer": "b"
-  },
-  {
-    "id": 5,
-    "topic": "science",
-    "difficulty": "medium",
-    "question": "At what temperature Celsius and Fahrenheit equal?",
-    "options": {
-      "a": "0",
-      "b": "-32",
-      "c": "26",
-      "d": "-40"
-    },
-    "answer": "d"
-  }
-]
+    {
+      "id": 5,
+      "topic": "science",
+      "difficulty": "medium",
+      "questionAndOptions": "At what temperature Celsius and Fahrenheit equal?, a: 0, b: -32, c: 26, d: -40",
+      "answer": "d"
+    }
+  ]
+}
