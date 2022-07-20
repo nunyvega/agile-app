@@ -41,6 +41,41 @@
       "difficulty": "medium",
       "questionAndOptions": "At what temperature Celsius and Fahrenheit equal?, a: 0, b: -32, c: 26, d: -40",
       "answer": "d"
+    },
+    {
+      "id": 6,
+      "topic": "history",
+      "difficulty": "hard",
+      "questionAndOptions": "When did the french revolution end?, a: 1785, b: 1832, c: 1799, d: 1742",
+      "answer": "c"
+    },
+    {
+      "id": 7,
+      "topic": "geography",
+      "difficulty": "medium",
+      "questionAndOptions": "What ocean surrounds the Maldivesl?, a: Indian, b: Atlantic, c: Pacific, d: Southern",
+      "answer": "a"
+    },
+    {
+      "id": 8,
+      "topic": "history",
+      "difficulty": "medium",
+      "questionAndOptions": "In what year did the Chernobyl disaster happen?, a: 1952, b: 1994, c: 1986, d: 1978",
+      "answer": "c"
+    },
+    {
+      "id": 9,
+      "topic": "history",
+      "difficulty": "medium",
+      "questionAndOptions": "In what year did the Berlin wall fell?, a: 1982, b: 1989, c: 1978, d: 1992",
+      "answer": "b"
+    },
+    {
+      "id": 10,
+      "topic": "entertainment",
+      "difficulty": "hard",
+      "questionAndOptions": "Who created Sherlock Holmes?, a: Arthur Doyle, b: Christopher McLyle, c: Morgan  Lennon, d: Peter Bock",
+      "answer": "a"
     }
   ]
 }
