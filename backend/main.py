@@ -87,7 +87,7 @@ def post_question():
     answer = request.args.get('answer')
     print(f"deviceId: {deviceId}")
     if(deviceId not in deviceId_matchId_map):
-        return jsonify({'status': '©', "msg": "device does not have an active match"})
+        return jsonify({'status': 'error', "msg": "device does not have an active match"})
     match = get_match(deviceId)
     if(match["deviceTurn"] != deviceId):
         return jsonify({'status': 'not_your_turn'})
