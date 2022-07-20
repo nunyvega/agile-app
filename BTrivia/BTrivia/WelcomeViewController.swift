@@ -22,7 +22,7 @@ final class WelcomeViewController: UIViewController {
     }
     
     @objc func doubleTapped() {
-        if let spinWheelViewController = storyboard?.instantiateViewController(withIdentifier: "SpinWheelViewController") {
+        if let spinWheelViewController = storyboard?.instantiateViewController(withIdentifier: "QuizViewController") {
             spinWheelViewController.modalPresentationStyle = .fullScreen
             present(spinWheelViewController, animated: true)
         }

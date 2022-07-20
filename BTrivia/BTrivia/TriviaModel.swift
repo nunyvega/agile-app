@@ -12,4 +12,10 @@ struct TriviaModelResponse: Codable {
 struct TriviaModel: Codable {
     let id: Int
     let topic, difficulty, questionAndOptions, answer: String
+    
+    var alreadyAnswer: Bool = false
+    
+    enum CodingKeys: String, CodingKey {
+        case id, topic, difficulty, questionAndOptions, answer
+    }
 }

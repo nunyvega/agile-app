@@ -20,22 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="94"/>
-        </scene>
-        <!--Spin Wheel View Controller-->
-        <scene sceneID="S0D-gu-cqr">
-            <objects>
-                <viewController storyboardIdentifier="SpinWheelViewController" id="IW5-QM-KzQ" customClass="SpinWheelViewController" customModule="BTrivia" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xJU-6m-vqg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="dpg-vx-efe"/>
-                        <color key="backgroundColor" red="0.41568627450000001" green="0.56863255720000005" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8cV-4i-Bsq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="746" y="94"/>
+            <point key="canvasLocation" x="681" y="94"/>
         </scene>
         <!--Quiz View Controller-->
         <scene sceneID="gCY-hN-XAC">
@@ -45,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="K4b-Gq-avD"/>
-                        <color key="backgroundColor" red="0.41568627450000001" green="0.45882352939999999" blue="0.90998088359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.41568627450000001" green="0.74195883755972214" blue="0.90998088359999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIE-rs-OwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -60,7 +45,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="3Mm-7i-asn"/>
-                        <color key="backgroundColor" red="0.41568627450000001" green="0.45882352939999999" blue="0.72941176470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.41568627450000001" green="0.45882352939999999" blue="0.62055217268611118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3f-qZ-LfH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

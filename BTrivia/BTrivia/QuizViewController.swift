@@ -15,11 +15,14 @@ enum Options: String {
     case d = "d"
 }
 
-class QuizViewController: UIViewController {
+class QuizViewController: UIViewController, SoundPlayerDelegate {
 
     var triviaData = [TriviaModel]()
-    var correctAnswer = "a"
-    var currentTopic = ""
+    var currentQuestion: TriviaModel?
+    var selectedTopic = ""
+    var shouldRunTheWheel = true
+    var totalPoints = 0
+    let topics = ["entertainment","art","sports","history","geography","science"]
     
     var textToSpeech = TextToSpeech()
     var soundPlayer = SoundPlayer()
@@ -27,8 +30,44 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        soundPlayer.delegate = self
+        
         addSwipeGestureRecognizer()
+        addLongPressGestureRecognizer()
         loadData()
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
+        if motion == .motionShake && shouldRunTheWheel {
+            soundPlayer.playSound(songName: "spinwheeleffect")
+            getTopic()
+            shouldRunTheWheel = false
+        }
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    func audioPlayerDidFinishPlaying() {
+        if let currentQuestion = currentQuestion, currentQuestion.alreadyAnswer == false {
+            print("Answer \(currentQuestion.answer)")
+            textToSpeech.speak(text: "The Topic is: \(selectedTopic), The question is: \(currentQuestion.questionAndOptions)")
+        }
+    }
+    
+    func getTopic() {
+        if let randomElement = topics.randomElement() {
+            print("New topic: \(randomElement)")
+            selectedTopic = randomElement
+            getCurrentQuestion()
+        }
+    }
+    
+    func addLongPressGestureRecognizer() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
     }
     
     func addSwipeGestureRecognizer() {
@@ -41,23 +80,37 @@ class QuizViewController: UIViewController {
     }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        let direction = sender.direction
-        switch direction {
-            case .right:
-                checkIfAnswerIsCorrect(userAnswer: .a)
-            case .left:
-                checkIfAnswerIsCorrect(userAnswer: .b)
-            case .up:
-                checkIfAnswerIsCorrect(userAnswer: .c)
-            case .down:
-            checkIfAnswerIsCorrect(userAnswer: .d)
-        default: break
+        if shouldRunTheWheel == false {
+            let direction = sender.direction
+            switch direction {
+                case .right:
+                    checkIfAnswerIsCorrect(userAnswer: .a)
+                case .left:
+                    checkIfAnswerIsCorrect(userAnswer: .b)
+                case .up:
+                    checkIfAnswerIsCorrect(userAnswer: .c)
+                case .down:
+                checkIfAnswerIsCorrect(userAnswer: .d)
+            default: break
+            }
         }
     }
     
-    // TODO: Finish this
+    @objc func doubleTapped() {
+        textToSpeech.speak(text: "Your points are: \(totalPoints)")
+    }
+    
     func checkIfAnswerIsCorrect(userAnswer: Options) {
+        if userAnswer.rawValue == currentQuestion?.answer {
+            soundPlayer.playSound(songName: "correctAnswer")
+            totalPoints += 10
+        } else {
+            soundPlayer.playSound(songName: "wrongAnswer")
+            totalPoints = 0
+        }
         
+        shouldRunTheWheel = true
+        setLocalAlreadyAnswerQuestions()
     }
     
     func loadJson(filename fileName: String) -> [TriviaModel]? {
@@ -77,16 +130,26 @@ class QuizViewController: UIViewController {
     func loadData() {
         if let triviaModel = loadJson(filename: "questions") {
             triviaData = triviaModel
-            filterBy(topic: currentTopic)
-            
         }
     }
     
-    func filterBy(topic: String) {
-        triviaData = triviaData.filter({ question in
+    func filterBy(topic: String) -> [TriviaModel] {
+        return triviaData.filter({ question in
             question.topic == topic
         })
-        textToSpeech.speak(text: triviaData[0].questionAndOptions)
     }
-
+    
+    func getCurrentQuestion() {
+        let filteredData = filterBy(topic: selectedTopic).filter(){$0.alreadyAnswer != true}
+        if let randomQuestion = filteredData.randomElement() {
+            currentQuestion = randomQuestion
+        }
+    }
+    
+    func setLocalAlreadyAnswerQuestions() {
+        if let index = triviaData.firstIndex(where: {$0.id == currentQuestion?.id}) {
+            triviaData[index].alreadyAnswer = true
+            currentQuestion?.alreadyAnswer = true
+        }
+    }
 }

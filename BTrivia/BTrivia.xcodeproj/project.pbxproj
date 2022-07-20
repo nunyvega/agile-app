@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		810529BA2888C2AF0042E469 /* correctAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 810529B92888C2AF0042E469 /* correctAnswer.mp3 */; };
+		810529BE2888CAF00042E469 /* wrongAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 810529BD2888CAF00042E469 /* wrongAnswer.mp3 */; };
 		8114F6CA288738BE00B9DE2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6C9288738BE00B9DE2B /* AppDelegate.swift */; };
 		8114F6CC288738BE00B9DE2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6CB288738BE00B9DE2B /* SceneDelegate.swift */; };
 		8114F6CE288738BE00B9DE2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6CD288738BE00B9DE2B /* ViewController.swift */; };
@@ -15,7 +17,6 @@
 		8114F6D6288738BF00B9DE2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8114F6D4288738BF00B9DE2B /* LaunchScreen.storyboard */; };
 		8114F6DE2887394B00B9DE2B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6DD2887394B00B9DE2B /* WelcomeViewController.swift */; };
 		8114F6E02887398E00B9DE2B /* TextToSpeech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6DF2887398E00B9DE2B /* TextToSpeech.swift */; };
-		8114F6E228873BC700B9DE2B /* SpinWheelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E128873BC700B9DE2B /* SpinWheelViewController.swift */; };
 		8114F6E428873C4300B9DE2B /* SoundPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E328873C4300B9DE2B /* SoundPlayer.swift */; };
 		8114F6E628873CB600B9DE2B /* spinwheeleffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8114F6E528873CB600B9DE2B /* spinwheeleffect.mp3 */; };
 		8114F6E828873D2C00B9DE2B /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E728873D2C00B9DE2B /* QuizViewController.swift */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		810529B92888C2AF0042E469 /* correctAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = correctAnswer.mp3; sourceTree = "<group>"; };
+		810529BD2888CAF00042E469 /* wrongAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongAnswer.mp3; sourceTree = "<group>"; };
 		8114F6C6288738BE00B9DE2B /* BTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8114F6C9288738BE00B9DE2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8114F6CB288738BE00B9DE2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		8114F6D7288738BF00B9DE2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8114F6DD2887394B00B9DE2B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		8114F6DF2887398E00B9DE2B /* TextToSpeech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToSpeech.swift; sourceTree = "<group>"; };
-		8114F6E128873BC700B9DE2B /* SpinWheelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheelViewController.swift; sourceTree = "<group>"; };
 		8114F6E328873C4300B9DE2B /* SoundPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundPlayer.swift; sourceTree = "<group>"; };
 		8114F6E528873CB600B9DE2B /* spinwheeleffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spinwheeleffect.mp3; sourceTree = "<group>"; };
 		8114F6E728873D2C00B9DE2B /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
@@ -83,9 +85,10 @@
 				8114F6D7288738BF00B9DE2B /* Info.plist */,
 				8114F6DD2887394B00B9DE2B /* WelcomeViewController.swift */,
 				8114F6DF2887398E00B9DE2B /* TextToSpeech.swift */,
-				8114F6E128873BC700B9DE2B /* SpinWheelViewController.swift */,
 				8114F6E328873C4300B9DE2B /* SoundPlayer.swift */,
 				8114F6E528873CB600B9DE2B /* spinwheeleffect.mp3 */,
+				810529B92888C2AF0042E469 /* correctAnswer.mp3 */,
+				810529BD2888CAF00042E469 /* wrongAnswer.mp3 */,
 				8114F6E728873D2C00B9DE2B /* QuizViewController.swift */,
 				8114F6E928873DC100B9DE2B /* TriviaModel.swift */,
 				8114F6EB28873E0300B9DE2B /* ResultsViewController.swift */,
@@ -153,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8114F6EE28873ED200B9DE2B /* questions.json in Resources */,
+				810529BA2888C2AF0042E469 /* correctAnswer.mp3 in Resources */,
+				810529BE2888CAF00042E469 /* wrongAnswer.mp3 in Resources */,
 				8114F6D6288738BF00B9DE2B /* LaunchScreen.storyboard in Resources */,
 				8114F6E628873CB600B9DE2B /* spinwheeleffect.mp3 in Resources */,
 				8114F6D3288738BF00B9DE2B /* Assets.xcassets in Resources */,
@@ -167,7 +172,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8114F6E228873BC700B9DE2B /* SpinWheelViewController.swift in Sources */,
 				8114F6EA28873DC100B9DE2B /* TriviaModel.swift in Sources */,
 				8114F6E428873C4300B9DE2B /* SoundPlayer.swift in Sources */,
 				8114F6EC28873E0300B9DE2B /* ResultsViewController.swift in Sources */,
