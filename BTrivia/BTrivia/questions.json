@@ -1,0 +1,81 @@
+{
+  "trivia": [
+    {
+      "id": 0,
+      "topic": "entertainment",
+      "difficulty": "hard",
+      "questionAndOptions": "Which film starred Tom Hanks as Jim Lovell?, a: Greyhound, b: Bridge of spies, c: Sully,d: Apollo 13",
+      "answer": "d"
+    },
+    {
+      "id": 1,
+      "topic": "art",
+      "difficulty": "easy",
+      "questionAndOptions": "Who painted the Mona Lisa?, a: Miguel Angel, b: Raphael Sanzio, c: Leonardo da Vinci, d: Donatello",
+      "answer": "c"
+    },
+    {
+      "id": 2,
+      "topic": "sports",
+      "difficulty": "medium",
+      "questionAndOptions": "Who won the 2006 FIFA world cup?, a: Brazil, b: France, c: Italy, d: Chile",
+      "answer": "c"
+    },
+    {
+      "id": 3,
+      "topic": "history",
+      "difficulty": "easy",
+      "questionAndOptions": "What's the independence day of USA?, a: January 20, b: December 24, c: July 4, d: March 7",
+      "answer": "c"
+    },
+    {
+      "id": 4,
+      "topic": "geography",
+      "difficulty": "hard",
+      "questionAndOptions": "What's the second largest country of the world?, a: Russia, b: Canada, c: United States, d: Australia",
+      "answer": "b"
+    },
+    {
+      "id": 5,
+      "topic": "science",
+      "difficulty": "medium",
+      "questionAndOptions": "At what temperature Celsius and Fahrenheit equal?, a: 0, b: -32, c: 26, d: -40",
+      "answer": "d"
+    },
+    {
+      "id": 6,
+      "topic": "history",
+      "difficulty": "hard",
+      "questionAndOptions": "When did the french revolution end?, a: 1785, b: 1832, c: 1799, d: 1742",
+      "answer": "c"
+    },
+    {
+      "id": 7,
+      "topic": "geography",
+      "difficulty": "medium",
+      "questionAndOptions": "What ocean surrounds the Maldivesl?, a: Indian, b: Atlantic, c: Pacific, d: Southern",
+      "answer": "a"
+    },
+    {
+      "id": 8,
+      "topic": "history",
+      "difficulty": "medium",
+      "questionAndOptions": "In what year did the Chernobyl disaster happen?, a: 1952, b: 1994, c: 1986, d: 1978",
+      "answer": "c"
+    },
+    {
+      "id": 9,
+      "topic": "history",
+      "difficulty": "medium",
+      "questionAndOptions": "In what year did the Berlin wall fell?, a: 1982, b: 1989, c: 1978, d: 1992",
+      "answer": "b"
+    },
+    {
+      "id": 10,
+      "topic": "entertainment",
+      "difficulty": "hard",
+      "questionAndOptions": "Who created Sherlock Holmes?, a: Arthur Doyle, b: Christopher McLyle, c: Morgan  Lennon, d: Peter Bock",
+      "answer": "a"
+    }
+  ]
+}
