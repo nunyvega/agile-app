@@ -37,6 +37,12 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        textToSpeech.speak(text: "Spin the wheel")
+    }
+    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
         if motion == .motionShake && shouldRunTheWheel {
             soundPlayer.playSound(songName: "spinwheeleffect")

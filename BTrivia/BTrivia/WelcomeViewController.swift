@@ -18,7 +18,7 @@ final class WelcomeViewController: UIViewController {
         tap.numberOfTapsRequired = 2
         view.addGestureRecognizer(tap)
         
-        textToSpeech.speak(text: "Welcome to BTrivia Game, Tap Twice to start the game")
+        textToSpeech.speak(text: "Welcome, Tap Twice to start the game")
     }
     
     @objc func doubleTapped() {
