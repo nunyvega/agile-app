@@ -15,7 +15,7 @@ protocol SpeakTriviaDelegate: AnyObject {
 struct TextToSpeech {
     
     var synthesizer = AVSpeechSynthesizer()
-    
+
     func speak(text:String) {
         
         let utterance = AVSpeechUtterance(string: text)
