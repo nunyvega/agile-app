@@ -20,7 +20,6 @@
 		8114F6E628873CB600B9DE2B /* spinwheeleffect.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8114F6E528873CB600B9DE2B /* spinwheeleffect.mp3 */; };
 		8114F6E828873D2C00B9DE2B /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E728873D2C00B9DE2B /* QuizViewController.swift */; };
 		8114F6EA28873DC100B9DE2B /* TriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E928873DC100B9DE2B /* TriviaModel.swift */; };
-		8114F6EC28873E0300B9DE2B /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6EB28873E0300B9DE2B /* ResultsViewController.swift */; };
 		8114F6EE28873ED200B9DE2B /* questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 8114F6ED28873ED200B9DE2B /* questions.json */; };
 		81601A362889CB56001C3D3E /* wrongAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81601A352889CB56001C3D3E /* wrongAnswer.mp3 */; };
 /* End PBXBuildFile section */
@@ -41,7 +40,6 @@
 		8114F6E528873CB600B9DE2B /* spinwheeleffect.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = spinwheeleffect.mp3; sourceTree = "<group>"; };
 		8114F6E728873D2C00B9DE2B /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		8114F6E928873DC100B9DE2B /* TriviaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaModel.swift; sourceTree = "<group>"; };
-		8114F6EB28873E0300B9DE2B /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		8114F6ED28873ED200B9DE2B /* questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = questions.json; sourceTree = "<group>"; };
 		81601A352889CB56001C3D3E /* wrongAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongAnswer.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +89,6 @@
 				81601A352889CB56001C3D3E /* wrongAnswer.mp3 */,
 				8114F6E728873D2C00B9DE2B /* QuizViewController.swift */,
 				8114F6E928873DC100B9DE2B /* TriviaModel.swift */,
-				8114F6EB28873E0300B9DE2B /* ResultsViewController.swift */,
 				8114F6ED28873ED200B9DE2B /* questions.json */,
 			);
 			path = BTrivia;
@@ -174,7 +171,6 @@
 			files = (
 				8114F6EA28873DC100B9DE2B /* TriviaModel.swift in Sources */,
 				8114F6E428873C4300B9DE2B /* SoundPlayer.swift in Sources */,
-				8114F6EC28873E0300B9DE2B /* ResultsViewController.swift in Sources */,
 				8114F6CE288738BE00B9DE2B /* ViewController.swift in Sources */,
 				8114F6E828873D2C00B9DE2B /* QuizViewController.swift in Sources */,
 				8114F6E02887398E00B9DE2B /* TextToSpeech.swift in Sources */,
