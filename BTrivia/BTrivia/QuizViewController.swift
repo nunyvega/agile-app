@@ -17,6 +17,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     var shouldChangeDificulty = false
     var shouldRunTheWheel = true
     var totalPoints = 0
+    var totalLives = 3
     
     var topics = [String]()
     var answeredQuestionsCount = 0
@@ -50,7 +51,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        textToSpeech.speak(text: "Spin the wheel")
+        textToSpeech.speak(text: "Shake the phone to spin the wheel")
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
@@ -114,7 +115,8 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     }
     
     @objc func doubleTapped() {
-        textToSpeech.speak(text: "Your points are: \(totalPoints)")
+        let plural = totalLives > 1 ? "lives" : "life"
+        textToSpeech.speak(text: "You got \(totalPoints) points and you stil have \(totalLives) \(plural)")
     }
     
     func checkIfAnswerIsCorrect(userAnswer: Options) {
@@ -122,16 +124,20 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         if userAnswer.rawValue == currentQuestion?.answer {
             soundPlayer.playSound(songName: "correctAnswer")
             totalPoints += currentDificulty == .easy ? 10 : currentDificulty == .medium ? 20 : 30
-            
-            answeredQuestionsCount += 1
-            
-            if answeredQuestionsCount >= 3 {
-                shouldChangeDificulty = true
-                answeredQuestionsCount = 0
-            }
         } else {
             soundPlayer.playSound(songName: "wrongAnswer")
-            totalPoints = 0
+            addALiveSystem()
+            
+            let plural = totalLives > 1 ? "lives" : "life"
+            let correctText = totalLives > 0 ? "You lost 1 life, you still have \(totalLives) \(plural)" : "You lost your last life, one more wrong answer and the game will end"
+            textToSpeech.speak(text: correctText)
+        }
+        
+        answeredQuestionsCount += 1
+        
+        if answeredQuestionsCount >= 3 {
+            shouldChangeDificulty = true
+            answeredQuestionsCount = 0
         }
         
         shouldRunTheWheel = true
@@ -195,6 +201,13 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             case .medium:
                 currentDificulty = .hard
             }
+        }
+    }
+    
+    func addALiveSystem() {
+        totalLives -= 1
+        if totalLives < 0 {
+            textToSpeech.speak(text: "END GAME")
         }
     }
 }
