@@ -208,6 +208,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         totalLives -= 1
         if totalLives < 0 {
             textToSpeech.speak(text: "END GAME")
+            navigationController?.popToRootViewController(animated: true)
         }
     }
 }
