@@ -8,22 +8,32 @@
 import UIKit
 import AVFoundation
 
-enum Options: String {
-    case a = "a"
-    case b = "b"
-    case c = "c"
-    case d = "d"
-}
-
 class QuizViewController: UIViewController, SoundPlayerDelegate {
 
     var triviaData = [TriviaModel]()
     var currentQuestion: TriviaModel?
     var selectedTopic = ""
+    var currentDificulty: Difficulty = .easy
+    var shouldChangeDificulty = false
     var shouldRunTheWheel = true
     var totalPoints = 0
-    let topics = ["entertainment","art","sports","history","geography","science"]
     
+    var topics = [String]()
+    var answeredQuestionsCount = 0
+    
+    enum Options: String {
+        case a = "a"
+        case b = "b"
+        case c = "c"
+        case d = "d"
+    }
+
+    enum Difficulty: String {
+        case hard = "hard"
+        case easy = "easy"
+        case medium = "medium"
+    }
+
     var textToSpeech = TextToSpeech()
     var soundPlayer = SoundPlayer()
 
@@ -46,6 +56,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
         if motion == .motionShake && shouldRunTheWheel {
             soundPlayer.playSound(songName: "spinwheeleffect")
+            calculateCurrentDifficulty()
             getTopic()
             shouldRunTheWheel = false
         }
@@ -107,9 +118,17 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     }
     
     func checkIfAnswerIsCorrect(userAnswer: Options) {
+        
         if userAnswer.rawValue == currentQuestion?.answer {
             soundPlayer.playSound(songName: "correctAnswer")
-            totalPoints += 10
+            totalPoints += currentDificulty == .easy ? 10 : currentDificulty == .medium ? 20 : 30
+            
+            answeredQuestionsCount += 1
+            
+            if answeredQuestionsCount >= 3 {
+                shouldChangeDificulty = true
+                answeredQuestionsCount = 0
+            }
         } else {
             soundPlayer.playSound(songName: "wrongAnswer")
             totalPoints = 0
@@ -134,14 +153,20 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     }
     
     func loadData() {
-        if let triviaModel = loadJson(filename: "questions") {
+        if let triviaModel = loadJson(filename: "generated_questions") {
+            getCategories(from: triviaModel)
             triviaData = triviaModel
         }
     }
     
+    func getCategories(from questions: [TriviaModel]) {
+        topics = Array(Set(questions.compactMap { $0.topic }))
+    }
+    
     func filterBy(topic: String) -> [TriviaModel] {
+        print("The current dificulty is: \(currentDificulty.rawValue)")
         return triviaData.filter({ question in
-            question.topic == topic
+            question.topic == topic && question.difficulty == currentDificulty.rawValue
         })
     }
     
@@ -156,6 +181,20 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         if let index = triviaData.firstIndex(where: {$0.id == currentQuestion?.id}) {
             triviaData[index].alreadyAnswer = true
             currentQuestion?.alreadyAnswer = true
+        }
+    }
+    
+    func calculateCurrentDifficulty() {
+        if shouldChangeDificulty {
+            shouldChangeDificulty = false
+            switch currentDificulty {
+            case .hard:
+                currentDificulty = .easy
+            case .easy:
+                currentDificulty = .medium
+            case .medium:
+                currentDificulty = .hard
+            }
         }
     }
 }
