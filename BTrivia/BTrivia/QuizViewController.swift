@@ -23,10 +23,10 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     var answeredQuestionsCount = 0
     
     enum Options: String {
-        case a = "a"
-        case b = "b"
-        case c = "c"
-        case d = "d"
+        case right = "right"
+        case left = "left"
+        case up = "up"
+        case down = "down"
     }
 
     enum Difficulty: String {
@@ -102,13 +102,13 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             let direction = sender.direction
             switch direction {
                 case .right:
-                    checkIfAnswerIsCorrect(userAnswer: .a)
+                    checkIfAnswerIsCorrect(userAnswer: .right)
                 case .left:
-                    checkIfAnswerIsCorrect(userAnswer: .b)
+                    checkIfAnswerIsCorrect(userAnswer: .left)
                 case .up:
-                    checkIfAnswerIsCorrect(userAnswer: .c)
+                    checkIfAnswerIsCorrect(userAnswer: .up)
                 case .down:
-                checkIfAnswerIsCorrect(userAnswer: .d)
+                checkIfAnswerIsCorrect(userAnswer: .down)
             default: break
             }
         }
