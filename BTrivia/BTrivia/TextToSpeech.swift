@@ -19,7 +19,7 @@ struct TextToSpeech {
     func speak(text:String) {
         
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.4
         
         synthesizer.speak(utterance)
