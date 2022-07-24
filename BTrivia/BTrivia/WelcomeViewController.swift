@@ -44,9 +44,8 @@ final class WelcomeViewController: UIViewController {
     }
     
     @objc func doubleTapped() {
-        // TODO: Add game instructions
         if textToSpeech.synthesizer.isSpeaking == false {
-            textToSpeech.speak(text: "Game Instructions")
+            textToSpeech.speak(text: "Welcome to BTrivia's game instructions. Show us how many correct questions you can get right in a row! On each round, start by shaking your phone to spin the wheel and select a random category and question. You will get a question and four possible answers. Swipe up, down, left or right to select your answer. If you get it right, you'll get a point and move to the next round. If you get it wrong, BTrivia will let you know your final score.")
         }
     }
     
