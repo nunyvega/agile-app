@@ -22,6 +22,7 @@
 		8114F6EA28873DC100B9DE2B /* TriviaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114F6E928873DC100B9DE2B /* TriviaModel.swift */; };
 		8153804D288B718100D314F1 /* generated_questions.json in Resources */ = {isa = PBXBuildFile; fileRef = 8153804C288B718100D314F1 /* generated_questions.json */; };
 		81601A362889CB56001C3D3E /* wrongAnswer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 81601A352889CB56001C3D3E /* wrongAnswer.mp3 */; };
+		81DD760D2891DD27006A959C /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81DD760C2891DD27006A959C /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		8114F6E928873DC100B9DE2B /* TriviaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriviaModel.swift; sourceTree = "<group>"; };
 		8153804C288B718100D314F1 /* generated_questions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = generated_questions.json; sourceTree = "<group>"; };
 		81601A352889CB56001C3D3E /* wrongAnswer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = wrongAnswer.mp3; sourceTree = "<group>"; };
+		81DD760C2891DD27006A959C /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				81601A352889CB56001C3D3E /* wrongAnswer.mp3 */,
 				8114F6E728873D2C00B9DE2B /* QuizViewController.swift */,
 				8114F6E928873DC100B9DE2B /* TriviaModel.swift */,
+				81DD760C2891DD27006A959C /* ResultsViewController.swift */,
 			);
 			path = BTrivia;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				8114F6CE288738BE00B9DE2B /* ViewController.swift in Sources */,
 				8114F6E828873D2C00B9DE2B /* QuizViewController.swift in Sources */,
 				8114F6E02887398E00B9DE2B /* TextToSpeech.swift in Sources */,
+				81DD760D2891DD27006A959C /* ResultsViewController.swift in Sources */,
 				8114F6DE2887394B00B9DE2B /* WelcomeViewController.swift in Sources */,
 				8114F6CA288738BE00B9DE2B /* AppDelegate.swift in Sources */,
 				8114F6CC288738BE00B9DE2B /* SceneDelegate.swift in Sources */,

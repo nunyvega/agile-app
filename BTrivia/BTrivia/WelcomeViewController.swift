@@ -11,8 +11,8 @@ final class WelcomeViewController: UIViewController {
 
     var textToSpeech: TextToSpeech = TextToSpeech()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         addSwipeGestureRecognizer()
         

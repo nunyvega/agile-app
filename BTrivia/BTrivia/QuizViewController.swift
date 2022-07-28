@@ -16,6 +16,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     var currentDificulty: Difficulty = .easy
     var shouldChangeDificulty = false
     var shouldRunTheWheel = true
+    var gameOver = false
     var totalPoints = 0
     var totalLives = 3
     
@@ -34,7 +35,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         case easy = "easy"
         case medium = "medium"
     }
-
+    
     var textToSpeech = TextToSpeech()
     var soundPlayer = SoundPlayer()
 
@@ -86,6 +87,9 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
         tap.numberOfTapsRequired = 2
         view.addGestureRecognizer(tap)
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        self.view.addGestureRecognizer(longPressRecognizer)
     }
     
     func addSwipeGestureRecognizer() {
@@ -94,6 +98,12 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             let gesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipe))
             gesture.direction = direction
             self.view.addGestureRecognizer(gesture)
+        }
+    }
+    
+    @objc func longPressed(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+
         }
     }
     
@@ -128,9 +138,11 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             soundPlayer.playSound(songName: "wrongAnswer")
             addALiveSystem()
             
-            let plural = totalLives > 1 ? "lives" : "life"
-            let correctText = totalLives > 0 ? "You lost 1 life, you still have \(totalLives) \(plural)" : "You lost your last life, one more wrong answer and the game will end"
-            textToSpeech.speak(text: correctText)
+            if gameOver == false {
+                let plural = totalLives > 1 ? "lives" : "life"
+                let correctText = totalLives == 0 ? "You lost your last life, one more wrong answer and the game will end" : "You lost 1 life, you still have \(totalLives) \(plural)"
+                textToSpeech.speak(text: correctText)
+            }
         }
         
         answeredQuestionsCount += 1
@@ -207,8 +219,11 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     func addALiveSystem() {
         totalLives -= 1
         if totalLives < 0 {
-            textToSpeech.speak(text: "END GAME")
-            navigationController?.popToRootViewController(animated: true)
+            gameOver = true
+            if let resultsView = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "ResultsViewController") as? ResultsViewController {
+                resultsView.finalScore = totalPoints
+                self.navigationController?.pushViewController(resultsView, animated: true)
+            }
         }
     }
 }

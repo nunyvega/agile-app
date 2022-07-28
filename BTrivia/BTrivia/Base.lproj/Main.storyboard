@@ -58,10 +58,29 @@
                     <navigationItem key="navigationItem" id="v1m-Zn-tHS">
                         <barButtonItem key="backBarButtonItem" title="   " id="qzq-4H-Icw"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="XVO-sZ-eLg" kind="show" id="doQ-Cc-MGI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIE-rs-OwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1490" y="94"/>
+            <point key="canvasLocation" x="1496" y="94"/>
+        </scene>
+        <!--Results View Controller-->
+        <scene sceneID="qRu-rT-zAD">
+            <objects>
+                <viewController storyboardIdentifier="ResultsViewController" id="XVO-sZ-eLg" customClass="ResultsViewController" customModule="BTrivia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ywg-Hs-G5m">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ESa-w0-bfa"/>
+                        <color key="backgroundColor" red="0.0" green="0.56904578210000001" blue="0.57461684940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZEE-rW-ckg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kxO-wl-hxy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2290" y="94"/>
         </scene>
     </scenes>
     <resources>
