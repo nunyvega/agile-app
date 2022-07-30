@@ -6,7 +6,7 @@ the process involves the following stages:
 
 1- Download the data from the database API   
 2- Transform the data in a format we use in our app and storing it as JSON  
-3- Sanitize the JSON since as downloaded from the public database contains characters that our app doesn't support, thus they must be converted in equivalent supported characters
+3- Sanitize the JSON since as downloaded from the public database contains characters that our app doesn't support, thus they must be converted to equivalent supported characters
 
 ## 1 & 2: Data download and formatting
 1- Create a python environment with python version 3.9 and install modules specified in requirements.txt  
