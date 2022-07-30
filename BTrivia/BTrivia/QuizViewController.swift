@@ -14,6 +14,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     var currentQuestion: TriviaModel?
     var selectedTopic = ""
     var currentDificulty: Difficulty = .easy
+    var currentState: State = .waitingTopic
     var shouldChangeDificulty = false
     var shouldRunTheWheel = true
     var gameOver = false
@@ -36,6 +37,12 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         case medium = "medium"
     }
     
+    enum State {
+        case waitingTopic
+        case readingQuestion
+        case waitingAnswer
+    }
+    
     var textToSpeech = TextToSpeech()
     var soundPlayer = SoundPlayer()
 
@@ -43,6 +50,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         super.viewDidLoad()
         
         soundPlayer.delegate = self
+        textToSpeech.delegate = self
         
         addSwipeGestureRecognizer()
         addLongPressGestureRecognizer()
@@ -71,6 +79,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     func audioPlayerDidFinishPlaying() {
         if let currentQuestion = currentQuestion, currentQuestion.alreadyAnswer == false {
             print("Answer \(currentQuestion.answer)")
+            currentState = .readingQuestion
             textToSpeech.speak(text: "The Topic is: \(selectedTopic), The question is: \(currentQuestion.questionAndOptions)")
         }
     }
@@ -102,13 +111,24 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     }
     
     @objc func longPressed(sender: UILongPressGestureRecognizer) {
-        if sender.state == .began {
-
+        if textToSpeech.synthesizer.isSpeaking == false {
+            if sender.state == .began {
+                switch currentState {
+                case .waitingTopic:
+                    textToSpeech.speak(text: "Shake the phone to spin the wheel")
+                case .readingQuestion:
+                    textToSpeech.speak(text: "Reading question")
+                case .waitingAnswer:
+                    if let currentQuestion = currentQuestion {
+                        textToSpeech.speak(text: "\(currentQuestion.questionAndOptions)")
+                    }
+                }
+            }
         }
     }
     
     @objc func handleSwipe(sender: UISwipeGestureRecognizer) {
-        if shouldRunTheWheel == false {
+        if shouldRunTheWheel == false && textToSpeech.synthesizer.isSpeaking == false && currentState == .waitingAnswer {
             let direction = sender.direction
             switch direction {
                 case .right:
@@ -152,6 +172,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             answeredQuestionsCount = 0
         }
         
+        currentState = .waitingTopic
         shouldRunTheWheel = true
         setLocalAlreadyAnswerQuestions()
     }
@@ -224,6 +245,15 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
                 resultsView.finalScore = totalPoints
                 self.navigationController?.pushViewController(resultsView, animated: true)
             }
+        }
+    }
+}
+
+extension QuizViewController: TextToSpeechDelegate {
+    
+    func speechSynthesizer(didFinish utterance: AVSpeechUtterance) {
+        if currentState == .readingQuestion {
+            currentState = .waitingAnswer
         }
     }
 }

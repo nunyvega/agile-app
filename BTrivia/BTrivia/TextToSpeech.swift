@@ -8,13 +8,19 @@
 import AVFoundation
 import UIKit
 
-protocol SpeakTriviaDelegate: AnyObject {
-    func speechSynthesizer(speechText: String)
+protocol TextToSpeechDelegate: AnyObject {
+    func speechSynthesizer(didFinish utterance: AVSpeechUtterance)
 }
 
-struct TextToSpeech {
+class TextToSpeech: NSObject, AVSpeechSynthesizerDelegate  {
     
+    weak var delegate: TextToSpeechDelegate?
     var synthesizer = AVSpeechSynthesizer()
+    
+    override init() {
+        super.init()
+        synthesizer.delegate = self
+    }
 
     func speak(text:String) {
         
@@ -23,5 +29,9 @@ struct TextToSpeech {
         utterance.rate = 0.4
         
         synthesizer.speak(utterance)
+    }
+    
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
+        delegate?.speechSynthesizer(didFinish: utterance)
     }
 }
