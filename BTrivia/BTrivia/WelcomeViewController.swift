@@ -6,17 +6,27 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class WelcomeViewController: UIViewController {
 
     var textToSpeech: TextToSpeech = TextToSpeech()
+    let welcomeText = "Welcome to our game! Swipe Right to start a single player game, Swipe left to start a multiplayer game, Tap twice to learn how to play the game"
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         addSwipeGestureRecognizer()
+        textToSpeech.speak(text: welcomeText)
         
-        textToSpeech.speak(text: "Welcome to our game! Swipe Right to play a new game, Swipe left to play an online game, Tap twice to learn how to play the game")
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressed))
+        self.view.addGestureRecognizer(longPressRecognizer)
+    }
+    
+    @objc func longPressed(sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            textToSpeech.speak(text: "Swipe Right to start a single player game, Swipe left to start a multiplayer game, Tap twice to learn how to play the game")
+        }
     }
     
     func addSwipeGestureRecognizer() {
