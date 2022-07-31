@@ -112,10 +112,13 @@ def post_question():
     match = get_match(deviceId)
     if(match["deviceTurn"] != deviceId):
         return jsonify({'status': 'not_your_turn'})
+    if("question" not in match):
+        return jsonify({'status': 'error', "msg": "This match does not have an active question, please call GET question endpoint"})
     question = match["question"]
     otherDeviceId = (match["startedDeviceId"]==deviceId and match["joinerDeviceId"]) or match["startedDeviceId"]
     if(answer == question["answer"]):
         match["deviceTurn"] = otherDeviceId
+        del match["question"]
         return jsonify({'status': 'correct'})
     else:
         match["winner"] = otherDeviceId
