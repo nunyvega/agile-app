@@ -20,6 +20,9 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     var gameOver = false
     var totalPoints = 0
     var totalLives = 3
+    var timer: Timer?
+    var secondsRemaining = 15
+    var countdownRunning = false
     
     var topics = [String]()
     var answeredQuestionsCount = 0
@@ -29,6 +32,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         case left = "left"
         case up = "up"
         case down = "down"
+        case undefined = "undefined"
     }
 
     enum Difficulty: String {
@@ -52,6 +56,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         soundPlayer.delegate = self
         textToSpeech.delegate = self
         
+        
         addSwipeGestureRecognizer()
         addLongPressGestureRecognizer()
         loadData()
@@ -61,6 +66,33 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         super.viewDidAppear(animated)
         
         textToSpeech.speak(text: "Shake the phone to spin the wheel")
+    }
+    
+    func startTimer() {
+        countdownRunning = true
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        countdownRunning = false
+        secondsRemaining = 15
+        timer?.invalidate()
+    }
+    
+    @objc func updateCounter() {
+        if secondsRemaining >= 0 {
+            print("\(secondsRemaining) seconds")
+            secondsRemaining -= 1
+            
+            if secondsRemaining <= 5 {
+                if secondsRemaining == 5 {
+                    textToSpeech.speak(text: "5 seconds")
+                }
+                UIDevice.vibrate()
+            }
+        } else {
+            checkIfAnswerIsCorrect(userAnswer: .undefined)
+        }
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
@@ -120,6 +152,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
                     textToSpeech.speak(text: "Reading question")
                 case .waitingAnswer:
                     if let currentQuestion = currentQuestion {
+                        currentState = .readingQuestion
                         textToSpeech.speak(text: "\(currentQuestion.questionAndOptions)")
                     }
                 }
@@ -172,6 +205,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
             answeredQuestionsCount = 0
         }
         
+        stopTimer()
         currentState = .waitingTopic
         shouldRunTheWheel = true
         setLocalAlreadyAnswerQuestions()
@@ -254,6 +288,16 @@ extension QuizViewController: TextToSpeechDelegate {
     func speechSynthesizer(didFinish utterance: AVSpeechUtterance) {
         if currentState == .readingQuestion {
             currentState = .waitingAnswer
+            
+            if countdownRunning == false {
+                startTimer()
+            }
         }
+    }
+}
+
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }
 }
