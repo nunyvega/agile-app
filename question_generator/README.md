@@ -14,7 +14,7 @@ the process involves the following stages:
 3- An output file should have been created called: "generated_questions.json"
 
 ## 3: Data validation
-To reestablish the data overall health, it's required to replace the different HTML entities ( read https://developer.mozilla.org/en-US/docs/Glossary/Entity ) for their corresponding character entities or words referring to the intended value. 
+To reestablish the data overall health, it's required to replace the different HTML entities ( see https://developer.mozilla.org/en-US/docs/Glossary/Entity ) for their corresponding character entities or words referring to the intended value. 
 
 The challenge faced here is that the questions from the database API were originally intended to be read by the users, but BTrivia needs to read the question. Since the signification of a symbol can depend on the context, it is necessary to check the context of the entities to define how to revert it to a symbol.
 
