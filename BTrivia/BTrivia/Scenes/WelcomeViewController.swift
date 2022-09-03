@@ -50,7 +50,7 @@ final class WelcomeViewController: UIViewController {
     }
     
     func startOnlineGame() {
-        textToSpeech.speak(text: "In development")
+        textToSpeech.speak(text: "Starting Mulitplayer game")
     }
     
     @objc func doubleTapped() {

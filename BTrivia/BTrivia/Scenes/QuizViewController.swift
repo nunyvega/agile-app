@@ -8,10 +8,6 @@
 import UIKit
 import AVFoundation
 
-// I AM AWARE OF THE CODE IMPROVEMENTS THAT CAN BE MADE AND I WILL DO THE FOLLOWING IMPROVEMENTS:
-// TODO - THIS CLASS NEED A REFACTOR TO REMOVE ALL THIS RESPONSABILITY AND PUT IT SOME PLACE ELSE
-// TODO - ALSO NEEDS SOME CODE CLEANING TO REMOVE NOT USED/DUPLICATED CODE
-
 class QuizViewController: UIViewController, SoundPlayerDelegate {
 
     var triviaData = [TriviaModel]()
@@ -69,7 +65,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        textToSpeech.speak(text: "Shake the phone to spin the wheel")
+        textToSpeech.speak(text: "Starting solo game; Shake the phone to spin the wheel")
     }
     
     func startTimer() {
@@ -101,6 +97,7 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?){
         if motion == .motionShake && shouldRunTheWheel {
+            view.backgroundColor = UIColor(named: "app_color")
             soundPlayer.playSound(songName: "spinwheeleffect")
             calculateCurrentDifficulty()
             getTopic()
@@ -190,15 +187,21 @@ class QuizViewController: UIViewController, SoundPlayerDelegate {
         
         if userAnswer.rawValue == currentQuestion?.answer {
             soundPlayer.playSound(songName: "correctAnswer")
+            view.backgroundColor = .green
+            if gameOver == false {
+                textToSpeech.speak(text: "Correct! ; Shake the phone to spin the wheel")
+            }
             totalPoints += currentDificulty == .easy ? 10 : currentDificulty == .medium ? 20 : 30
         } else {
             soundPlayer.playSound(songName: "wrongAnswer")
+            view.backgroundColor = .red
             addALiveSystem()
             
             if gameOver == false {
                 let plural = totalLives > 1 ? "lives" : "life"
                 let correctText = totalLives == 0 ? "You lost your last life, one more wrong answer and the game will end" : "You lost 1 life, you still have \(totalLives) \(plural)"
                 textToSpeech.speak(text: correctText)
+                textToSpeech.speak(text: "Shake the phone to spin the wheel")
             }
         }
         
