@@ -10,7 +10,7 @@ import AVFoundation
 
 final class WelcomeViewController: UIViewController {
 
-    var textToSpeech: TextToSpeech = TextToSpeech()
+    private let textToSpeech: TextToSpeech = TextToSpeech()
     let welcomeText = "Welcome to our game! Swipe Right to start a single player game, Swipe left to start a multiplayer game, Tap twice to learn how to play the game"
     
     override func viewDidAppear(_ animated: Bool) {

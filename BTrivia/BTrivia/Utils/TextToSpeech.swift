@@ -23,11 +23,11 @@ class TextToSpeech: NSObject, AVSpeechSynthesizerDelegate  {
     }
 
     func speak(text:String) {
-        
+        // 1
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: "en-GB")
         utterance.rate = 0.4
-        
+        //2
         synthesizer.speak(utterance)
     }
     
