@@ -2,6 +2,13 @@ from flask import Flask, request, jsonify
 import uuid
 import json
 from random import randint
+import random
+import string
+
+# printing lowercase
+letters = string.ascii_lowercase
+sessionId = ''.join(random.choice(letters) for i in range(10))
+print(f"starting app w sessionId: {sessionId}")
 
 f = open('questions.json')
 
@@ -23,10 +30,20 @@ deviceId_matchId_map = {}
 
 current_matches = {}
 
+
+def log_state():
+    print(f"sessionId: {sessionId}")
+    print(f"current_matches: {current_matches}")
+    print(f"deviceId_matchId_map: {deviceId_matchId_map}")
+    print(f"waiting_matches: {waiting_matches}")
+    print(f"deviceId_waiting_matchId_map: {deviceId_waiting_matchId_map}")
+
 @app.route('/match', methods=['GET'])
 def get_match():
     deviceId = request.args.get('deviceId')
+    print("GET MATCH")
     print(f"deviceId: {deviceId}")
+    log_state()
     if(deviceId in deviceId_matchId_map):
         return jsonify({'status': 'match_in_progress'})
     elif(deviceId in deviceId_waiting_matchId_map):
@@ -63,7 +80,9 @@ def get_match(deviceId):
 @app.route('/question', methods=['GET'])
 def get_question():
     deviceId = request.args.get('deviceId')
+    print("GET QUESTION")
     print(f"deviceId: {deviceId}")
+    log_state()
     if(deviceId not in deviceId_matchId_map):
         return jsonify({'status': 'error', "msg": "device does not have an active match"})
     match = get_match(deviceId)
@@ -85,16 +104,21 @@ def get_question():
 def post_question():
     deviceId = request.args.get('deviceId')
     answer = request.args.get('answer')
+    print("POST QUESTION")
     print(f"deviceId: {deviceId}")
+    log_state()
     if(deviceId not in deviceId_matchId_map):
         return jsonify({'status': 'error', "msg": "device does not have an active match"})
     match = get_match(deviceId)
     if(match["deviceTurn"] != deviceId):
         return jsonify({'status': 'not_your_turn'})
+    if("question" not in match):
+        return jsonify({'status': 'error', "msg": "This match does not have an active question, please call GET question endpoint"})
     question = match["question"]
     otherDeviceId = (match["startedDeviceId"]==deviceId and match["joinerDeviceId"]) or match["startedDeviceId"]
     if(answer == question["answer"]):
         match["deviceTurn"] = otherDeviceId
+        del match["question"]
         return jsonify({'status': 'correct'})
     else:
         match["winner"] = otherDeviceId
